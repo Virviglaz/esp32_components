@@ -1,0 +1,28 @@
+idf_component_register(
+SRC_DIRS
+	"drivers/LTC6804-2"
+	"include"
+	"ota"
+	"remote_logger"
+	"wifi"
+	"buttons"
+	"stepper"
+INCLUDE_DIRS
+	"drivers/LTC6804-2"
+	"include"
+	"ota"
+	"remote_logger"
+	"wifi"
+	"buttons"
+	"stepper"
+	"encoder"
+PRIV_REQUIRES
+	nvs_flash
+	esp_timer
+	esp_netif
+	esp_wifi
+	app_update
+	lwip
+REQUIRES
+	driver
+)
