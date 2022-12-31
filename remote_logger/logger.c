@@ -27,8 +27,11 @@ static void send_to_server(void)
 		if (write(sockfd, msg, size) == size) {
 			uint32_t ack = 0;
 			if (read(sockfd, &ack, sizeof(ack)) != sizeof(ack)) {
-				if (!ack)
+				if (!ack) {
+					close(sockfd);
+					sockfd = 0;
 					break;
+				}
 			}
 
 			/* Remove message from the queue */
